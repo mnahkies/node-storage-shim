@@ -2,6 +2,11 @@
   "name": "node-storage-shim",
   "version": "1.0.0",
   "description": "Provides an in memory implementation of the webstorage Storage interface to be used as a shim for localStorage or sessionStorage for unit testing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mnahkies/node-storage-shim"
+  },
+  "bugs": "https://github.com/mnahkies/node-storage-shim/issues",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
