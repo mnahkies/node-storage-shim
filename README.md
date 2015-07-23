@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mnahkies/node-storage-shim.svg)](https://travis-ci.org/mnahkies/node-storage-shim)
+
 node-storage-shim
 ============
 node-storage-shim provides a simple shim conforming to the w3c Storage Interface
@@ -19,9 +21,9 @@ Example Usage
     
 Running Unit Tests
 ------------------
-Running the unit tests requires that you have mocha installed globally and accessible on your path.
+The unit tests use mocha, and are setup to run by the standard npm test command.
 
-    npm install -g mocha
+    npm install
     npm test
     
 Further Reading
