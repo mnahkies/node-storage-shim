@@ -1,28 +1,66 @@
-var StorageShim = function () {
-    this.contents = {}
+var RESERVED_KEYS = {
+    length: true,
+    key: true,
+    setItem: true,
+    getItem: true,
+    removeItem: true,
+    clear: true
 }
 
-StorageShim.prototype = Object.create({
-    get length() {
-        return Object.keys(this.contents).length
-    },
-    key: function (n) {
-        var key = Object.keys(this.contents)[n]
-        return key || (key === '' ? key : null)
-    },
-    setItem: function (key, value) {
-        this.contents[key] = '' + value
-    },
-    getItem: function (key) {
-        var item = this.contents[key]
-        return item || (item === '' ? item : null)
-    },
-    removeItem: function (key) {
-        delete this.contents[key]
-    },
-    clear: function () {
-        this.contents = {}
-    }
-})
+var StorageShim = function () {
+    Object.defineProperty(this, 'length', {
+        enumerable: false,
+        get: function () {
+            return Object.keys(this).length
+        }
+    })
+
+    Object.defineProperty(this, 'key', {
+        enumerable: false,
+        value: function (n) {
+            var key = Object.keys(this)[n]
+            return key || (key === '' ? key : null)
+        }
+    })
+
+    Object.defineProperty(this, 'setItem', {
+        enumerable: false,
+        value: function (key, value) {
+            if (key in RESERVED_KEYS) {
+                throw new Error('Cannot assign to reserved key "' + key + '"')
+            }
+
+            this[key] = '' + value
+        }
+    })
+
+    Object.defineProperty(this, 'getItem', {
+        enumerable: false,
+        value: function (key) {
+            if (key in RESERVED_KEYS) {
+                throw new Error('Cannot get reserved key "' + key + '"')
+            }
+
+            var item = this[key]
+            return item || (item === '' ? item : null)
+        }
+    })
+
+    Object.defineProperty(this, 'removeItem', {
+        enumerable: false,
+        value: function (key) {
+            delete this[key]
+        }
+    })
+
+    Object.defineProperty(this, 'clear', {
+        enumerable: false,
+        value: function () {
+            for (var key in this) {
+                delete this[key]
+            }
+        }
+    })
+}
 
 module.exports = StorageShim

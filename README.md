@@ -9,6 +9,9 @@ when running in environments that do not support these, eg: node.
 Note that this does not persist it's data between runs,
 and is primarily aimed at use for unit tests.
 
+Additionally, you cannot use any of the method names as keys, this is unfortunately
+a trade-off that is required to support for ... in iteration. 
+
 Example Usage
 -----
 

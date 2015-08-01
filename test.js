@@ -50,4 +50,17 @@ describe('StorageShim', function () {
         assert.strictEqual(instance.getItem(''), 'foobar')
         assert.strictEqual(instance.key(0), '')
     })
+
+    it('for in iteration works', function () {
+        instance.setItem('foo', 'bar')
+
+        for (var key in instance) {
+            assert.strictEqual(key, 'foo')
+        }
+    })
+
+    it('Object.keys works', function () {
+        instance.setItem('foo', 'bar')
+        assert.strictEqual(Object.keys(instance)[0], 'foo')
+    })
 })
