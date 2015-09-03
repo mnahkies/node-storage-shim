@@ -29,6 +29,16 @@ describe('StorageShim', function () {
         assert.strictEqual(instance.getItem('1'), 'foobar')
     })
 
+    it('#setItem(key, value) sets an item that can be retrieved by property access', function () {
+        instance.setItem('foo', 'bar')
+        assert.strictEqual(instance.foo, 'bar')
+    })
+
+    it('#getItem(key) returns items set using property access', function () {
+        instance.foo = 'bar'
+        assert.strictEqual(instance.getItem('foo'), 'bar')
+    })
+
     it('#getItem(key) returns null if key does not exist', function () {
         assert.strictEqual(instance.getItem('1'), null)
     })
