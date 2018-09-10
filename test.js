@@ -73,4 +73,21 @@ describe('StorageShim', function () {
         instance.setItem('foo', 'bar')
         assert.strictEqual(Object.keys(instance)[0], 'foo')
     })
+
+    const proxyTestCases = [
+        {value: 123, expected: '123'},
+        {value: true, expected: 'true'},
+        {value: null, expected: 'null'},
+        {value: undefined, expected: 'undefined'},
+        {value: {some: 'obj'}, expected: '[object Object]'},
+        {value: {toString: () => "object with toString method()"}, expected: "object with toString method()"}
+    ]
+
+    proxyTestCases.forEach(function ({value, expected}) {
+        it(`correctly proxies direct property sets for type "${typeof value}"`, function () {
+            instance.foo = value
+            assert.strictEqual(instance.foo, expected)
+        })
+    })
+
 })
