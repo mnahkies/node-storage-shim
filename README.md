@@ -22,6 +22,7 @@ Example Usage
 Running Unit Tests
 ------------------
 The unit tests use mocha, and are setup to run by the standard npm test command.
+This also runs a sanity test of the typescript declaration in the test-typescript-declarations directory
 
     npm install
     npm test
@@ -30,10 +31,18 @@ Limitations
 -----------
 - You cannot use any of the method names as keys, this is a trade-off that is required to support for ... in iteration.
 
-- Values set using property access rather than via setItem are not coerced to strings. Implementing this requires access to ES6 proxies.
-
 - storage event portion of the interface is not implemented.
     
+Change Log
+----------
+
+## 2.0.0 (10-09-2018)
+- Updated minimum NodeJS version and started using Proxy to fix limitations with respect to direct property access.
+- Added typescript declaration
+
+## 1.0.1 (08/01/2015)
+- Initial release
+
 Further Reading
 ---------------
 [w3c Storage Interface](https://w3c.github.io/webstorage/#storage-0)
