@@ -7,7 +7,7 @@ echo "Testing typescript declarations..."
 cd ./test-typescript-declarations
 npm install &> /dev/null
 npm link ../ &> /dev/null
-npx tsc &> /dev/null
+./node_modules/.bin/tsc &> /dev/null
 
 if [ $(node ./test-typescript-declarations.js) != "bar" ]; then
     echo "Something went wrong"
