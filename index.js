@@ -13,7 +13,8 @@ var RESERVED_KEYS = {
 
 var StorageShimProxyHandler = {
     set: function (target, property, value) {
-        return target.setItem(property, value)
+        target.setItem(property, value)
+        return true
     },
     get: function (target, property) {
         if (property in RESERVED_KEYS) {
