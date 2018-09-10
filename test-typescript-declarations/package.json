@@ -1,0 +1,14 @@
+{
+  "name": "test-typescript-declarations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test-typescript-declarations.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "typescript": "^3.0.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

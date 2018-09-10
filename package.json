@@ -8,9 +8,16 @@
   },
   "bugs": "https://github.com/mnahkies/node-storage-shim/issues",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test && ./test-typescript-declarations.sh"
   },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
   "author": "Michael Nahkies",
   "license": "ISC",
   "devDependencies": {
