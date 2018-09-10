@@ -1,3 +1,7 @@
+if (typeof Proxy !== 'function') {
+    throw new Error("node-storage-shim requires the ES2015 Proxy built-in to function.")
+}
+
 var RESERVED_KEYS = {
     length: true,
     key: true,
@@ -5,6 +9,19 @@ var RESERVED_KEYS = {
     getItem: true,
     removeItem: true,
     clear: true
+}
+
+var StorageShimProxyHandler = {
+    set: function (target, property, value) {
+        return target.setItem(property, value)
+    },
+    get: function (target, property) {
+        if (property in RESERVED_KEYS) {
+            return target[property]
+        }
+
+        return target.getItem(property)
+    }
 }
 
 var StorageShim = function () {
@@ -61,6 +78,8 @@ var StorageShim = function () {
             }
         }
     })
+
+    return new Proxy(this, StorageShimProxyHandler)
 }
 
 module.exports = StorageShim
