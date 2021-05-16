@@ -21,8 +21,8 @@
   "author": "Michael Nahkies",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^7.1.1"
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0"
   },
   "engines": {
     "node": ">=6.14.4"
