@@ -1,6 +1,6 @@
 # node-storage-shim
 
-[![Build Status](https://travis-ci.org/mnahkies/node-storage-shim.svg)](https://travis-ci.org/mnahkies/node-storage-shim)
+[![Build Status](https://github.com/mnahkies/node-storage-shim/actions/workflows/ci.yml/badge.svg)](https://github.com/mnahkies/node-storage-shim/actions/workflows/ci.yml?query=branch%3Amaster)
 [![npm](https://img.shields.io/npm/v/node-storage-shim.svg)](https://www.npmjs.com/package/node-storage-shim)
 
 node-storage-shim provides a simple shim conforming to the w3c Storage Interface
