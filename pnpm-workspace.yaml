@@ -1,0 +1,10 @@
+gitChecks: false
+
+ignoredBuiltDependencies: []
+
+minimumReleaseAge: 10080
+
+minimumReleaseAgeExclude: []
+
+overrides:
+  node-storage-shim: 'link:'

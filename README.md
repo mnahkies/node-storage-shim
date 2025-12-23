@@ -13,7 +13,7 @@ use in unit tests.
 ## Installation
 The package can be installed from npm:
 
-```shell script
+```shell
 npm install --save node-storage-shim
 ```
 
@@ -41,13 +41,14 @@ global.localStorage = new StorageShim()
 global.sessionStorage = new StorageShim()
 ```
 
-    
 ## Running Unit Tests
 The unit tests use mocha, and are setup to run by the standard npm test command.
 This also runs a sanity test of the typescript declaration in the test-typescript-declarations directory
 
-    npm install
-    npm test
+```shell
+pnpm install
+pnpm test
+```
 
 ## Limitations
 - You cannot use any of the method names as keys, this is a trade-off that is required to support for ... in iteration.

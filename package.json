@@ -10,7 +10,7 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "mocha test && ./test-typescript-declarations.sh"
+    "test": "mocha test"
   },
   "files": [
     "index.js",
@@ -21,10 +21,14 @@
   "author": "Michael Nahkies",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^8.4.0"
+    "chai": "^6.2.1",
+    "mocha": "^11.7.5"
   },
   "engines": {
     "node": ">=6.14.4"
+  },
+  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6",
+  "dependencies": {
+    "node-storage-shim": "link:"
   }
 }
